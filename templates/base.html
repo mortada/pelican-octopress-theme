@@ -64,9 +64,24 @@
   {% if page and page.latex %}
     {{ page.latex }}
   {% endif %}
+
+  {% if article %}
+    {% if article.styles %}
+      {% for style in article.styles %}
+  {{ style }}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
 </head>
 
 <body>
+  {% if article %}
+    {% if article.scripts %}
+      {% for script in article.scripts %}
+  {{ script }}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
   <header role="banner">{% include '_includes/header.html' %}</header>
   <nav role="navigation">{% include '_includes/navigation.html' %}</nav>
   <div id="main">
