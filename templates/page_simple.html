@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="{{ AUTHOR }}">
+  <title>{% block title %}{{ page.title }} &mdash; {{ SITENAME }}{% endblock %}</title>
+  
+  {% if page and page.description %}
+  <meta name="description" content="{{ page.description }}" />
+  {% endif %}
+
+  {% if page %}
+    {% if page.stylesheets %}
+      {% for stylesheet in page.stylesheets %}
+  {{ stylesheet }}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+</head>
+<body>
+  {{ page.content }}
+</body>
+  {% if page %}
+    {% if page.javascripts %}
+      {% for javascript in page.javascripts %}
+  {{ javascript }}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+</html>
